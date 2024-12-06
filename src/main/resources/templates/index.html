@@ -2,10 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Spring Security Example</title>
+    <style>
+        .login-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <h1>Welcome to Index PAGE!</h1>
-
+<a th:href="@{/user}">
+    <button class="login-btn">Login</button>
+</a>
 
 </body>
 </html>
