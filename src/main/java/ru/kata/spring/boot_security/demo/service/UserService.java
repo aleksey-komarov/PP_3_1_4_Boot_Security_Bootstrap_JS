@@ -45,20 +45,14 @@ public class UserService implements UserDetailsService {
     }
 
     public void addUser(User user) {
-        User newUser = new User();
-        newUser.setName(user.getName());
-        newUser.setLastname(user.getLastname());
-        newUser.setEmail(user.getEmail());
-        newUser.setUsername(user.getUsername());
-        newUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        newUser.setRoles(user.getRoles());
-        userRepository.save(newUser);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
     }
 
     public void updateUser(User user, long id) {
         user.setId(id);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userRepository.save(user);;
+        userRepository.save(user);
     }
 
     public void deleteUser(long id) {
