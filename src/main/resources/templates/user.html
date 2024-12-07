@@ -68,7 +68,7 @@
         <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
         <p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
         <p><strong>Roles:</strong>
-            <span th:each="role : ${user.roles}" th:text="${role.role}"></span>
+            <span th:each="role : ${user.roles}" th:text="${role.roleName}"></span>
         </p>
     </div>
     <div class="button-container">

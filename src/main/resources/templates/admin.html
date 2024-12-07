@@ -91,7 +91,7 @@
         <td th:text="${user.username}"></td>
         <td>
             <ul>
-                <li th:each="role : ${user.roles}" th:text="${role.role}"></li>
+                <li th:each="role : ${user.roles}" th:text="${role.roleName}"></li>
             </ul>
         </td>
         <td>
