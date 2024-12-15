@@ -4,7 +4,6 @@ package ru.kata.spring.boot_security.demo.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.Set;
 
@@ -19,30 +18,18 @@ public class User implements UserDetails {
     @Column(name = "id")
     private long id;
 
-    @NotEmpty(message = "Поле не может быть пустым")
-    @Pattern(regexp = "^[a-zA-Zа-яА-Я]*$", message = "Имя должно содержать только буквы.")
-    @Size(min = 2, max = 30, message = "Имя должно содержать от 2 до 4 символов")
-    @Column(name = "name")
-    private String name;
+    @Column(name = "firstName")
+    private String firstName;
 
-    @NotEmpty(message = "Поле не может быть пустым")
-    @Pattern(regexp = "^[a-zA-Zа-яА-Я]*$", message = "Фамилия должна содержать только буквы.")
-    @Size(min = 2, max = 30, message = "Имя должно содержать от 2 до 4 символов")
-    @Column(name = "lastname")
-    private String lastname;
+    @Column(name = "lastName")
+    private String lastName;
 
-    @NotEmpty(message = "Поле не может быть пустым")
-    @Email(message = "Email должен быть корректным")
-    @Column(name = "email")
+    @Column(name = "Age")
+    private int age;
+
+    @Column(name = "email", unique = true)
     private String email;
 
-    @NotEmpty(message = "Поле не может быть пустым")
-    @Size(min = 4, max = 10, message = "Логин должн содержать от 4 до 10 символов")
-    @Column(name = "username", unique = true)
-    private String username;
-
-    @NotEmpty(message = "Поле не может быть пустым")
-    @Size(min = 4, message = "Минимальная длинна пароля 4 символа")
     @Column(name = "password")
     private String password;
 
@@ -55,12 +42,11 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(long id, String name, String lastname, String email, String username, String password, Set<Role> roles) {
-        this.id = id;
-        this.name = name;
-        this.lastname = lastname;
+    public User(String firstName, String lastName, int age, String email, String password, Set<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
         this.email = email;
-        this.username = username;
         this.password = password;
         this.roles = roles;
     }
@@ -73,20 +59,28 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getEmail() {
@@ -95,10 +89,6 @@ public class User implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public void setPassword(String password) {
@@ -125,7 +115,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.username;
+        return this.email;
     }
 
     @Override

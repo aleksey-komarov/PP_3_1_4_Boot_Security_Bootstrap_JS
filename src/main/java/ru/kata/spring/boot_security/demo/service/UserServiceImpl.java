@@ -26,16 +26,16 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Transactional
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = findByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = findByEmail(email);
         if (user == null)
-            throw new UsernameNotFoundException(String.format("Пользователь с именем '%s' не найден", username));
+            throw new UsernameNotFoundException(String.format("Пользователь с почтой '%s' не найден", email));
         return user;
     }
 
     @Override
-    public User findByUsername(String username) {
-        return userRepository.findUsersByUsername(username);
+    public User findByEmail(String email) {
+        return userRepository.findUsersByEmail(email);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public boolean uniqueUsername(String username) {
-        return userRepository.findUsersByUsername(username) == null;
+    public boolean uniqueUsername(String email) {
+        return userRepository.findUsersByEmail(email) == null;
     }
 }

@@ -2,16 +2,16 @@ package ru.kata.spring.boot_security.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
-import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
     private final UserService userService;
     private final RoleService roleService;
@@ -22,56 +22,29 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/admin")
-    public String listUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
+    @GetMapping("")
+    public String listUsers(ModelMap modelMap, Principal principal) {
+        modelMap.addAttribute("user", userService.findByEmail(principal.getName()));
+        modelMap.addAttribute("allUsers", userService.getAllUsers());
+        modelMap.addAttribute("roles", roleService.getAllRoles());
+        modelMap.addAttribute("addUser", new User());
         return "admin";
     }
 
-
-    @GetMapping("/new")
-    public String addNewUser(Model model) {
-        User user = new User();
-        model.addAttribute("newUser", user);
-        model.addAttribute("roles", roleService.getAllRoles());
-        return "new";
-    }
-
     @PostMapping("/new")
-    public String creatUser(@Valid @ModelAttribute("newUser") User user,
-                            BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            return "new";
-        }
-        if (!userService.uniqueUsername(user.getUsername())) {
-            model.addAttribute("uniqueUsername", "Пользователь с таким логином существует");
-            return "new";
-        }
+    public String createUser(User user) {
         userService.addUser(user);
         return "redirect:/admin";
-
     }
 
-    @GetMapping("/edit")
-    public String updateUser(@RequestParam("id") long id, Model model) {
-        User user = userService.getUser(id);
-        model.addAttribute("editUser", user);
-        model.addAttribute("roles", roleService.getAllRoles());
-        return "edit";
-    }
-
-    @PostMapping("/edit")
-    public String updateUser(@Valid @ModelAttribute("editUser") User user, BindingResult bindingResult, @RequestParam("id") long id) {
-        if (bindingResult.hasErrors()) {
-            return "edit";
-        }
+    @PatchMapping("/edit/{id}")
+    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") long id) {
         userService.updateUser(user, id);
         return "redirect:/admin";
-
     }
 
-    @PostMapping("/delete")
-    public String deleteUser(@RequestParam("id") long id) {
+    @DeleteMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
         return "redirect:/admin";
     }
