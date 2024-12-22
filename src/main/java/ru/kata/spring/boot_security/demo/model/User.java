@@ -18,13 +18,13 @@ public class User implements UserDetails {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "firstName")
-    private String firstName;
+    @Column(name = "firstname")
+    private String firstname;
 
-    @Column(name = "lastName")
-    private String lastName;
+    @Column(name = "lastname")
+    private String lastname;
 
-    @Column(name = "Age")
+    @Column(name = "age")
     private int age;
 
     @Column(name = "email", unique = true)
@@ -34,17 +34,17 @@ public class User implements UserDetails {
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "users_id"),
-            inverseJoinColumns = @JoinColumn(name = "roles_id"))
-    private Set<Role> roles;
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Collection<Role> roles;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, int age, String email, String password, Set<Role> roles) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String firstname, String lastname, int age, String email, String password, Collection<Role> roles) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.age = age;
         this.email = email;
         this.password = password;
@@ -59,20 +59,20 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public int getAge() {
@@ -95,7 +95,7 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
+    public Collection<Role> getRoles() {
         return roles;
     }
 
