@@ -17,7 +17,7 @@ function getTableUser() {
                         <td class="pt-3" >${user.lastname}</td>
                         <td class="pt-3" >${user.age}</td>
                         <td class="pt-3" >${user.email}</td>
-                        <td class="pt-3" >${roles.replaceAll('ROLE_', '') + ' '}</td>
+                        <td class="pt-3" >${roles.replaceAll('ROLE_', '')}</td>
                         <td>
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit" onclick="editModal(${user.id})">
                             Edit
