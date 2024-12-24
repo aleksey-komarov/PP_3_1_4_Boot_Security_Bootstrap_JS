@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,11 @@ public class AuthController {
     public ResponseEntity<List<User>> printUsers() {
         List<User> userList = userService.getAllUsers();
         return ResponseEntity.ok(userList);
+    }
+
+    @GetMapping("/roles")
+    public ResponseEntity<List<Role>> getRoles() {
+        return ResponseEntity.ok(roleService.getAllRoles());
     }
 
     @GetMapping("/user/{id}")

@@ -35,11 +35,13 @@
                 <div class="container-fluid">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#home"
+                            <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab"
+                               href="#home"
                                id="home-tab" role="tab">Users table</a>
                         </li>
                         <li class="nav-item">
-                            <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#newUser"
+                            <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab"
+                               href="#newUser"
                                id="profile-tab" role="tab">New User</a>
                         </li>
                     </ul>
@@ -68,7 +70,8 @@
                                         </tbody>
                                     </table>
                                     <!--  Edit  -->
-                                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="edit"
+                                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade"
+                                         id="edit"
                                          role="dialog" tabindex="-1">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -83,53 +86,55 @@
                                                         <div class="container-fluid align-middle w-50">
                                                             <label class="form-label text-center h6"
                                                                    for="Edit_id"><b>ID</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" disabled
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   disabled
                                                                    id="Edit_id" name="id"
                                                                    placeholder="ID" type="text">
 
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_firstname"><b>Firstname</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" id="Edit_firstname"
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   id="Edit_firstname"
                                                                    name="firstname" placeholder="Firstname"
                                                                    required type="text">
 
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_lastname"><b>Lastname</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" id="Edit_lastname"
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   id="Edit_lastname"
                                                                    name="lastname" placeholder="Lastname"
                                                                    required type="text">
 
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_age"><b>Email</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" id="Edit_age"
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   id="Edit_age"
                                                                    name="age" placeholder="Age"
                                                                    required type="number">
 
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_email"><b>Email</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" id="Edit_email"
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   id="Edit_email"
                                                                    name="email" placeholder="Email"
                                                                    required type="email">
 
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_password"><b>Password</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" id="Edit_password"
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   id="Edit_password"
                                                                    name="password" placeholder="Password"
                                                                    required type="password">
 
                                                             <label class="form-label text-center pt-3 h6"
-                                                                   for="Edit_rolesId"><b>Role</b></label>
-                                                            <select class="form-control" id="Edit_rolesId" multiple
-                                                                    name="roles"
-                                                                    required size="2">
-
-                                                                <option value="1">USER</option>
-                                                                <option value="2">ADMIN</option>
-                                                            </select>
+                                                                   for="rolesEdit"><b>Role</b></label>
+                                                            <select multiple size="2" class="custom-select" name="roles"
+                                                                    id="rolesEdit"></select>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button class="btn btn-secondary" data-dismiss="modal" id="closeEdit"
+                                                        <button class="btn btn-secondary" data-dismiss="modal"
+                                                                id="closeEdit"
                                                                 type="button">Close
                                                         </button>
                                                         <button class="btn btn-primary" type="submit">Edit</button>
@@ -139,7 +144,8 @@
                                         </div>
                                     </div>
                                     <!-- Delete -->
-                                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="delete"
+                                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade"
+                                         id="delete"
                                          role="dialog" tabindex="-1">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -153,41 +159,43 @@
                                                     <div class="modal-body text-center pt-3">
                                                         <div class="container-fluid align-middle w-50">
                                                             <label class="form-label text-center h6" for="Edit_id1"><b>ID</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" disabled
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   disabled
                                                                    id="Edit_id1" name="id"
                                                                    placeholder="ID" type="number">
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_firstname1"><b>Firstname</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" disabled
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   disabled
                                                                    id="Edit_firstname1" name="firstname"
                                                                    placeholder="Firstname" type="text">
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_lastname1"><b>Lastname</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" disabled
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   disabled
                                                                    id="Edit_lastname1" name="lastname"
                                                                    placeholder="Lastname" type="text">
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_age1"><b>Age</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" disabled
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   disabled
                                                                    id="Edit_age1" name="age"
                                                                    placeholder="Age" type="number">
                                                             <label class="form-label text-center pt-3 h6"
                                                                    for="Edit_email1"><b>Email</b></label>
-                                                            <input aria-describedby="basic-addon1" class="form-control" disabled
+                                                            <input aria-describedby="basic-addon1" class="form-control"
+                                                                   disabled
                                                                    id="Edit_email1" name="email"
                                                                    placeholder="Email" type="email">
                                                             <label class="form-label text-center pt-3 h6"
-                                                                   for="Edit_rolesId1"><b>Role</b></label>
-                                                            <select class="form-control" disabled
-                                                                    id="Edit_rolesId1"
-                                                                    multiple name="roles" required size="2">
-                                                                <option value="1">USER</option>
-                                                                <option value="2">ADMIN</option>
-                                                            </select>
+                                                                   for="rolesD"><b>Role</b></label>
+                                                            <select multiple size="2" class="custom-select" name="roles"
+                                                                    disabled id="rolesD"></select>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button class="btn btn-secondary" data-dismiss="modal" id="closeDelete"
+                                                        <button class="btn btn-secondary" data-dismiss="modal"
+                                                                id="closeDelete"
                                                                 type="button">Close
                                                         </button>
                                                         <button class="btn btn-danger" type="submit">Delete</button>
@@ -207,40 +215,40 @@
                                     <div class="m-4">
                                         <form class="align-items-center pt-2" id="create">
                                             <div class="d-flex flex-column align-items-center w-25 mx-auto">
-                                                <label class="form-label text-center h6" for="firstname"><b>Firstname</b></label>
-                                                <input aria-describedby="basic-addon1" class="form-control" id="firstname" name="firstname"
+                                                <label class="form-label text-center h6"
+                                                       for="firstname"><b>Firstname</b></label>
+                                                <input aria-describedby="basic-addon1" class="form-control"
+                                                       id="firstname" name="firstname"
                                                        placeholder="Firstname" required type="text">
                                                 <label class="form-label text-center pt-2 h6"
                                                        for="lastnameC"><b>Lastname</b></label>
-                                                <input aria-describedby="basic-addon1" class="form-control" id="lastnameC" name="lastname"
+                                                <input aria-describedby="basic-addon1" class="form-control"
+                                                       id="lastnameC" name="lastname"
                                                        placeholder="Lastname" required type="text">
                                                 <label class="form-label text-center pt-2 h6"
                                                        for="ageC"><b>Age</b></label>
-                                                <input aria-describedby="basic-addon1" class="form-control" id="ageC" name="age"
+                                                <input aria-describedby="basic-addon1" class="form-control" id="ageC"
+                                                       name="age"
                                                        placeholder="Age" required type="number">
                                                 <label class="form-label text-center pt-2 h6"
                                                        for="emailC"><b>Email</b></label>
-                                                <input aria-describedby="basic-addon1" class="form-control" id="emailC" name="email"
+                                                <input aria-describedby="basic-addon1" class="form-control" id="emailC"
+                                                       name="email"
                                                        placeholder="Email" required type="email">
                                                 <label class="form-label text-center pt-2 h6"
                                                        for="password"><b>Password</b></label>
-                                                <input aria-describedby="basic-addon1" class="form-control" id="password"
+                                                <input aria-describedby="basic-addon1" class="form-control"
+                                                       id="password"
                                                        name="password" placeholder="Password"
                                                        required type="password">
-                                                <label class="form-label text-center pt-2 h6" for="rolesId"><b>Role</b></label>
-                                                <select class="form-control" id="rolesId"
-                                                        multiple
-                                                        name="roles" required size="2">
-                                                    <option value="1">ADMIN</option>
-                                                    <option value="2">USER</option>
-                                                </select>
-
-
-                                                <div class="mx-auto pt-4">
-                                                    <button class="btn btn-success btn-lg w-100" type="submit">Add new
-                                                        user
-                                                    </button>
-                                                </div>
+                                                <label class="form-label text-center pt-2 h6"
+                                                       for="rolesC"><b>Role</b></label>
+                                                <select multiple size="2" class="custom-select" name="roles"
+                                                        id="rolesC"></select>
+                                            </div>
+                                            <div class="mx-auto pt-4 text-center">
+                                                <button class="btn btn-success btn-lg w-25" type="submit">Add new user
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -268,6 +276,7 @@
 <script src="../static/deleteUserPage.js"></script>
 <script src="../static/modal.js"></script>
 <script src="../static/editUserPage.js"></script>
+<script src="../static/loadRoles.js"></script>
 
 </body>
 </html>
